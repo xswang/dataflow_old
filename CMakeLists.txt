@@ -7,9 +7,13 @@ project(dataflow)
 add_definitions("-std=c++11")
 
 include_directories(
-  "{PROJECT_SOURCE_DIR}"
-  "{PROJECT_BINARY_DIR}"
+  "${PROJECT_SOURCE_DIR}/dataflow/"
+  "${PROJECT_BINARY_DIR}/dataflow/"
 )
 
+link_directories(
+  "${PROJECT_BINARY_DIR}/dataflow/core/base"
+)
 
-add_subdirectory("dataflow/core/base")
+add_subdirectory(dataflow/core/base)
+add_subdirectory(dataflow/core/graph)
