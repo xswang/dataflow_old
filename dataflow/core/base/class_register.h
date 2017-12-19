@@ -69,7 +69,7 @@
                                               creator);                      \
    }                                                                         \
    ~ObjectCreatorRegister_##register_name() {}                               \
-  }
+  };
 
   #define CLASS_REGISTER_IMPLEMENT_REGISTRY(register_name, base_class_name)  \
   base_class_name* ObjectCreatorRegistry_##register_name::CreateObject(      \

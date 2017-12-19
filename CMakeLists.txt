@@ -15,5 +15,7 @@ link_directories(
   "${PROJECT_BINARY_DIR}/dataflow/core/base"
 )
 
+add_subdirectory(ps-lite)
 add_subdirectory(dataflow/core/base)
 add_subdirectory(dataflow/core/graph)
+add_subdirectory(dataflow/core/ops)
