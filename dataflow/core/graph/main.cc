@@ -4,11 +4,14 @@
  *
  * Distributed under terms of the MIT license.
  */
-
-#include "core/base/class_register.h"
+#include <iostream>
+#include "core/ops/operator.h"
+#include "core/ops/conv.h"
 
 int main() {
-  
+  dataflow::Conv* conv;
+  conv = dynamic_cast<dataflow::Conv*>(dataflow::CREATE_OP("conv"));
+  std::cout << conv->get_op_name() << std::endl;
   return 0;
 }
 
