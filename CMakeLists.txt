@@ -18,6 +18,9 @@ include_directories(
 
 link_directories(
   "${PROJECT_BINARY_DIR}/dataflow/core/base"
+  "${PROJECT_BINARY_DIR}/dataflow/core/ops"
+  "${PROJECT_BINARY_DIR}/dataflow/core/graph"
+  "${PROJECT_BINARY_DIR}/dataflow/core/proto"
 )
 
 add_subdirectory(ps-lite)
