@@ -1,1 +1,1 @@
-distribute DL system
+Distributed DL system
