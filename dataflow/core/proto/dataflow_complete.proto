@@ -1,0 +1,43 @@
+syntax = "proto3";
+package dataflow;
+
+message GraphDef {
+  repeated NodeDef node_def = 1;
+}
+
+message NodeDef {
+  string name = 1;
+  string type = 2;
+  repeated string in = 3;
+  repeated string out = 4;
+  oneof opDef {
+    LoaderOpProto loader_proto = 5;
+    ConvolutionOpProto convolution_proto = 6;
+    PoolingOpProto pooling_proto = 7;
+    InnerProductOpProto innerproduct_proto = 8;
+  }
+}
+
+message LoaderOpProto {
+  string data = 1;
+  string label = 2;
+  uint32 channel = 3;
+  uint32 height = 4;
+  uint32 width = 5;
+}
+
+message ConvolutionOpProto {
+  uint32 num_output = 1;
+  uint32 pad = 2;
+  uint32 kernel_size = 3;
+  uint32 stride = 4;
+}
+
+message PoolingOpProto {
+  uint32 kernel_size = 1;
+}
+
+message InnerProductOpProto {
+  uint32 num_output = 1; 
+}
+
