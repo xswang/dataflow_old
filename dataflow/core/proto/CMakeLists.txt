@@ -9,7 +9,6 @@ foreach(pb_file ${dataflow_pbfiles})
   file(RELATIVE_PATH pb_relative_path_file ${PROJECT_SOURCE_DIR} ${pb_file})
   list(APPEND dataflow_rel_pbfiles ${pb_relative_path_file})
 endforeach()
-message(${dataflow_rel_pbfiles})
 
 RELATIVE_PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
   ${PROJECT_SOURCE_DIR}

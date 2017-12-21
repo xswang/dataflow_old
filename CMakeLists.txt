@@ -14,6 +14,7 @@ include(proto2cpp)
 include_directories(
   "${PROJECT_SOURCE_DIR}/dataflow/"
   "${PROJECT_BINARY_DIR}/dataflow/"
+  "${PROJECT_BINARY_DIR}/"
 )
 
 link_directories(
