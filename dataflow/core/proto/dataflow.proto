@@ -5,7 +5,7 @@ message GraphDef {
   repeated NodeDef node_def = 1;
 }
 
-message NodeDef {
+message NodeDef{
   string name = 1;
   string type = 2;
   uint32 in_num = 99;
@@ -19,7 +19,7 @@ message NodeDef {
     InnerProductOpProto innerproduct_proto = 9;
     ReluOpProto relu_proto = 10;
     SoftMaxOpProto softmax_proto = 11;
-    MultiNomialLogisticlossOpProto multinomiallogisticloss_proto = 12;
+    LogLossOpProto logloss_proto = 12;
   }
 }
 
@@ -59,7 +59,7 @@ message SoftMaxOpProto {
   uint32 tmp = 1;
 }
 
-message MultiNomialLogisticlossOpProto {
+message LogLossOpProto {
   string data = 1;
   string label = 2;
   string loss = 3;
