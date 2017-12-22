@@ -9,7 +9,7 @@
 
 namespace dataflow{
 
-Message* CreateMessage(const std::string& type_name) {
+Message* PbParse::CreateMessage(const std::string& type_name) {
   Message* message = NULL;
   const Descriptor* descriptor =
     DescriptorPool::generated_pool()->FindMessageTypeByName(type_name);
@@ -21,6 +21,16 @@ Message* CreateMessage(const std::string& type_name) {
     }
   }
   return message;
+}
+
+bool PbParse::ReadProtoFromTextFile(const char* filename,
+                                    Message* proto) {
+  int fd = open(filename, O_RDONLY);
+  FileInputStream* input = new FileInputStream(fd);
+  bool success = google::protobuf::TextFormat::Parse(input, proto);
+  delete input;
+  close(fd);
+  return success;
 }
 
 }
