@@ -10,6 +10,8 @@
 #include "core/ops/conv.h"
 #include "core/proto/dataflow.pb.h"
 #include "core/graph/proto_parse.h"
+#include "core/graph/graph_viz.h"
+#include "core/graph/udf_graph.h"
 
 int main() {
   dataflow::Conv* conv;
@@ -21,7 +23,14 @@ int main() {
   const char* model = "/root/xiaoshu/dataflow/dataflow/models/googlenet_model_complete.txt";
   dataflow::PbParse* pb;
   bool res = pb->ReadProtoFromTextFile(model, &graph_def);
-  std::cout << graph_def.node_def_size() << std::endl;
+  dataflow::UdfGraph udf_graph(graph_def);
+  std::cout<<"node num = "<<udf_graph.nodes_.size()<<std::endl;
+  std::cout<<"edge num = "<<udf_graph.edges_.size()<<std::endl;
+  dataflow::GraphViz<dataflow::UdfGraph> graphviz(udf_graph);
+  std::string dot_file = "dataflow_googlene.dot";
+  graphviz.GraphToDotFileByEdges(dot_file);
+  graphviz.GraphToDotFileByNodes(dot_file);
+  //std::cout << graph_def.node_def_size() << std::endl;
   return 0;
 }
 
