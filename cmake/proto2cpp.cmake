@@ -10,7 +10,7 @@ function(RELATIVE_PROTOBUF_GENERATE_CPP SRCS HDRS ROOT_DIR)
     set(ABS_FIL ${ROOT_DIR}/${FIL})
     get_filename_component(FIL_WE ${FIL} NAME_WE)
     get_filename_component(FIL_DIR ${ABS_FIL} PATH)
-    set(PROTOBUF_PROTOC_EXECUTABLE protoc)
+    #set(PROTOBUF_PROTOC_EXECUTABLE protoc)
 
     #message(${CMAKE_CURRENT_BINARY_DIR})
     message(${ABS_FIL})

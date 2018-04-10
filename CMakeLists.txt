@@ -5,16 +5,15 @@ cmake_minimum_required (VERSION 3.5)
 project(dataflow)
 
 add_definitions("-std=c++11")
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 set(dataflow_src_dir ${PROJECT_SOURCE_DIR}/dataflow)
+set(dataflow_cmake_dir ${PROJECT_SOURCE_DIR}/cmake)
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${dataflow_cmake_dir}/third_party)
+list(APPEND CMAKE_MODULE_PATH ${dataflow_cmake_dir})
+include(third_party)
 include(proto2cpp)
-include(gflags)
-include(glog)
-include(googletest)
-include(zlib)
-#include(protobuf)
 
 include_directories(
   "${PROJECT_SOURCE_DIR}/dataflow/"

@@ -2,6 +2,9 @@ set(THIRD_PARTY_DIR "${CMAKE_BINARY_DIR}/third_party"
   CACHE PATH "Location where third party headers and libs will be put.")
 mark_as_advanced(THIRD_PARTY_DIR)
 
+message(${THIRD_PARTY_DIR})
+
+
 include(zlib)
 include(protobuf)
 include(googletest)
