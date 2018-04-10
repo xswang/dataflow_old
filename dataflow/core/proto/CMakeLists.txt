@@ -5,6 +5,7 @@ foreach(src_file ${dataflow_src})
     list(APPEND dataflow_pbfiles ${src_file})
   endif()
 endforeach()
+
 foreach(pb_file ${dataflow_pbfiles})
   file(RELATIVE_PATH pb_relative_path_file ${PROJECT_SOURCE_DIR} ${pb_file})
   list(APPEND dataflow_rel_pbfiles ${pb_relative_path_file})
@@ -14,4 +15,5 @@ RELATIVE_PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
   ${PROJECT_SOURCE_DIR}
   ${dataflow_rel_pbfiles})
 add_library(dataflow_proto ${PROTO_SRCS} ${PROTO_HDRS})
+add_dependencies(dataflow_proto ${dataflow_third_party_dependencies})
 
