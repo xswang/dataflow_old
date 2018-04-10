@@ -13,6 +13,8 @@ include(proto2cpp)
 include(gflags)
 include(glog)
 include(googletest)
+include(zlib)
+#include(protobuf)
 
 include_directories(
   "${PROJECT_SOURCE_DIR}/dataflow/"

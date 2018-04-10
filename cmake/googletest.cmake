@@ -7,16 +7,8 @@ set(googletest_SRC_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest/src/google
 set(googletest_URL https://github.com/google/googletest.git)
 set(googletest_TAG ec44c6c1675c25b9827aacd08c02433cccde7780)
 
-if(WIN32)
-    set(GOOGLETEST_BUILD_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest/src/googletest/googletest/${CMAKE_BUILD_TYPE})
-    set(GOOGLETEST_LIBRARY_NAMES gtest.lib)
-elseif(APPLE AND ("${CMAKE_GENERATOR}" STREQUAL "Xcode"))
-    set(GOOGLETEST_BUILD_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest/src/googletest/googletest/${CMAKE_BUILD_TYPE})
-    set(GOOGLETEST_LIBRARY_NAMES libgtest.a)
-else()
-    set(GOOGLETEST_BUILD_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest/src/googletest/googletest)
-    set(GOOGLETEST_LIBRARY_NAMES libgtest.a)
-endif()
+set(GOOGLETEST_BUILD_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest/src/googletest/googletest)
+set(GOOGLETEST_LIBRARY_NAMES libgtest.a)
 
 foreach(LIBRARY_NAME ${GOOGLETEST_LIBRARY_NAMES})
     list(APPEND GOOGLETEST_STATIC_LIBRARIES ${GOOGLETEST_LIBRARY_DIR}/${LIBRARY_NAME})
