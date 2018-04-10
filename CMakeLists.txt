@@ -12,6 +12,7 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(proto2cpp)
 include(gflags)
 include(glog)
+include(googletest)
 
 include_directories(
   "${PROJECT_SOURCE_DIR}/dataflow/"
