@@ -14,6 +14,7 @@ list(APPEND CMAKE_MODULE_PATH ${dataflow_cmake_dir}/third_party)
 list(APPEND CMAKE_MODULE_PATH ${dataflow_cmake_dir})
 include(third_party)
 include(proto2cpp)
+include(proto2grpc)
 
 include_directories(
   "${PROJECT_SOURCE_DIR}/dataflow/"
