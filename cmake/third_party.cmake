@@ -22,6 +22,7 @@ set(dataflow_third_party_libs
     ${PROTOBUF_STATIC_LIBRARIES}
     ${GRPC_STATIC_LIBRARIES}
     ${ZEROMQ_STATIC_LIBRARIES}
+    ${BOOST_STATIC_LIBRARIES}
 )
 
 set(dataflow_third_party_dependencies
@@ -41,6 +42,8 @@ set(dataflow_third_party_dependencies
   grpc_copy_binary_to_destination
   zeromq_copy_headers_to_destination
   zeromq_copy_libs_to_destination
+  boost_copy_headers_to_destination
+  boost_copy_libs_to_destination
 )
 
 include_directories(
@@ -51,4 +54,5 @@ include_directories(
     ${PROTOBUF_INCLUDE_DIR}
     ${GRPC_INCLUDE_DIR}
     ${ZEROMQ_INCLUDE_DIR}
+    ${BOOST_INCLUDE_DIR}
 )
