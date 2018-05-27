@@ -13,6 +13,10 @@
 #include "core/graph/graph_viz.h"
 #include "core/graph/udf_graph.h"
 
+#include "gflags/include/gflags/gflags.h"
+
+DEFINE_string(model_file, "/root/xiaoshu/dataflow/dataflow/models/googlenet_model_complete.txt", "");
+
 int main() {
   dataflow::Conv* conv;
   conv = dynamic_cast<dataflow::Conv*>(dataflow::CREATE_OP("conv"));
@@ -20,9 +24,9 @@ int main() {
   //std::ifstream in("models/googlenet_model_complete.txt", std::ios::in);
   dataflow::GraphDef graph_def;
   //dataflow::NodeDef node_def;
-  const char* model = "/root/xiaoshu/dataflow/dataflow/models/googlenet_model_complete.txt";
+  // const char* model = "/root/xiaoshu/dataflow/dataflow/models/googlenet_model_complete.txt";
   dataflow::PbParse* pb;
-  bool res = pb->ReadProtoFromTextFile(model, &graph_def);
+  bool res = pb->ReadProtoFromTextFile(FLAGS_model_file.c_str(), &graph_def);
   dataflow::UdfGraph udf_graph(graph_def);
   std::cout<<"node num = "<<udf_graph.nodes_.size()<<std::endl;
   std::cout<<"edge num = "<<udf_graph.edges_.size()<<std::endl;
