@@ -14,6 +14,7 @@
 #include "core/graph/udf_graph.h"
 
 #include "gflags/include/gflags/gflags.h"
+#include "glog/include/glog/logging.h"
 
 DEFINE_string(model_file, "/root/xiaoshu/dataflow/dataflow/models/googlenet_model_complete.txt", "");
 
@@ -21,6 +22,7 @@ int main() {
   dataflow::Conv* conv;
   conv = dynamic_cast<dataflow::Conv*>(dataflow::CREATE_OP("conv"));
   std::cout << conv->get_op_name() << std::endl;
+  LOG(INFO) << conv->get_op_name();
   //std::ifstream in("models/googlenet_model_complete.txt", std::ios::in);
   dataflow::GraphDef graph_def;
   //dataflow::NodeDef node_def;
