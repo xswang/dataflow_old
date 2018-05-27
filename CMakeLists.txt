@@ -33,3 +33,7 @@ add_subdirectory(dataflow/core/base)
 add_subdirectory(dataflow/core/ops)
 add_subdirectory(dataflow/core/graph)
 add_subdirectory(dataflow/core/proto)
+
+set(STA_DEPS graph base ops dataflow_proto ${dataflow_third_party_libs})
+add_executable(df ${dataflow_src_dir}/core/main.cc)
+target_link_libraries(df ${STA_DEPS})
